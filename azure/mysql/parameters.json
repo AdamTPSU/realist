@@ -1,0 +1,111 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apiVersion": {
+            "value": {
+                "type": "String",
+                "value": "2021-12-01-preview"
+            }
+        },
+        "location": {
+            "value": {
+                "type": "String",
+                "value": "East US"
+            }
+        },
+        "serverName": {
+            "value": {
+                "type": "String",
+                "value": "realist-f4fa1c820de74751b54fa08dc23973a7-dbserver"
+            }
+        },
+        "serverEdition": {
+            "value": {
+                "type": "String",
+                "value": "Burstable"
+            }
+        },
+        "vCores": {
+            "value": {
+                "type": "Int",
+                "value": 1
+            }
+        },
+        "storageSizeGB": {
+            "value": {
+                "type": "Int",
+                "value": 32
+            }
+        },
+        "haEnabled": {
+            "value": {
+                "type": "String",
+                "value": "Disabled"
+            }
+        },
+        "backupRetentionDays": {
+            "value": {
+                "type": "Int",
+                "value": 3
+            }
+        },
+        "geoRedundantBackup": {
+            "value": {
+                "type": "String",
+                "value": "Disabled"
+            }
+        },
+        "storageIops": {
+            "value": {
+                "type": "Int",
+                "value": 0
+            }
+        },
+        "storageAutogrow": {
+            "value": {
+                "type": "String",
+                "value": "Enabled"
+            }
+        },
+        "autoIoScaling": {
+            "value": {
+                "type": "String",
+                "value": "Enabled"
+            }
+        },
+        "vmName": {
+            "value": {
+                "type": "String",
+                "value": "Standard_B1ms"
+            }
+        },
+        "standbyAvailabilityZone": {
+            "value": {
+                "type": "String",
+                "value": ""
+            }
+        },
+        "network": {
+            "value": {
+                "type": "Object",
+                "value": {
+                    "delegatedSubnetResourceId": "/subscriptions/56c53c9b-34da-4993-a17f-7e472dbba0da/resourceGroups/wordpress/providers/Microsoft.Network/virtualNetworks/realist-8bfc4200e8-vnet/subnets/realist-e4636974a3-dbsubnet",
+                    "privateDnsZoneResourceId": "/subscriptions/56c53c9b-34da-4993-a17f-7e472dbba0da/resourceGroups/wordpress/providers/Microsoft.Network/privateDnsZones/realist-e4636974a3-privatelink.mysql.database.azure.com"
+                }
+            }
+        },
+        "identityData": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        },
+        "dataEncryptionData": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        }
+    }
+}

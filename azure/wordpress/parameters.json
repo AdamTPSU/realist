@@ -1,0 +1,252 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": {
+                "type": "String",
+                "value": "56c53c9b-34da-4993-a17f-7e472dbba0da"
+            }
+        },
+        "name": {
+            "value": {
+                "type": "String",
+                "value": "realist"
+            }
+        },
+        "location": {
+            "value": {
+                "type": "String",
+                "value": "East US"
+            }
+        },
+        "hostingPlanName": {
+            "value": {
+                "type": "String",
+                "value": "ASP-wordpress-9f3f"
+            }
+        },
+        "serverFarmResourceGroup": {
+            "value": {
+                "type": "String",
+                "value": "wordpress"
+            }
+        },
+        "ftpsState": {
+            "value": {
+                "type": "String",
+                "value": "FtpsOnly"
+            }
+        },
+        "sku": {
+            "value": {
+                "type": "String",
+                "value": "Basic"
+            }
+        },
+        "skuCode": {
+            "value": {
+                "type": "String",
+                "value": "B1"
+            }
+        },
+        "workerSize": {
+            "value": {
+                "type": "String",
+                "value": "0"
+            }
+        },
+        "workerSizeId": {
+            "value": {
+                "type": "String",
+                "value": "0"
+            }
+        },
+        "numberOfWorkers": {
+            "value": {
+                "type": "String",
+                "value": "1"
+            }
+        },
+        "kind": {
+            "value": {
+                "type": "String",
+                "value": "linux"
+            }
+        },
+        "reserved": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "alwaysOn": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "linuxFxVersion": {
+            "value": {
+                "type": "String",
+                "value": "DOCKER|mcr.microsoft.com/appsvc/wordpress-alpine-php:8.2"
+            }
+        },
+        "dockerRegistryUrl": {
+            "value": {
+                "type": "String",
+                "value": "https://mcr.microsoft.com"
+            }
+        },
+        "storageSizeGB": {
+            "value": {
+                "type": "Int",
+                "value": 32
+            }
+        },
+        "storageIops": {
+            "value": {
+                "type": "Int",
+                "value": 700
+            }
+        },
+        "storageAutoGrow": {
+            "value": {
+                "type": "String",
+                "value": "Enabled"
+            }
+        },
+        "storageAutoIoScaling": {
+            "value": {
+                "type": "String",
+                "value": "Enabled"
+            }
+        },
+        "backupRetentionDays": {
+            "value": {
+                "type": "Int",
+                "value": 7
+            }
+        },
+        "geoRedundantBackup": {
+            "value": {
+                "type": "String",
+                "value": "Disabled"
+            }
+        },
+        "charset": {
+            "value": {
+                "type": "String",
+                "value": "utf8"
+            }
+        },
+        "collation": {
+            "value": {
+                "type": "String",
+                "value": "utf8_general_ci"
+            }
+        },
+        "vmName": {
+            "value": {
+                "type": "String",
+                "value": "Standard_B1ms"
+            }
+        },
+        "serverEdition": {
+            "value": {
+                "type": "String",
+                "value": "Burstable"
+            }
+        },
+        "vCores": {
+            "value": {
+                "type": "Int",
+                "value": 1
+            }
+        },
+        "serverName": {
+            "value": {
+                "type": "String",
+                "value": "realist-f4fa1c820de74751b54fa08dc23973a7-dbserver"
+            }
+        },
+        "serverUsername": {
+            "value": {
+                "type": "String",
+                "value": "ckjurasbzl"
+            }
+        },
+        "serverPassword": {
+            "value": null
+        },
+        "databaseName": {
+            "value": {
+                "type": "String",
+                "value": "realist_f4fa1c820de74751b54fa08dc23973a7_database"
+            }
+        },
+        "publicNetworkAccess": {
+            "value": {
+                "type": "String",
+                "value": "Disabled"
+            }
+        },
+        "wordpressTitle": {
+            "value": {
+                "type": "String",
+                "value": "WordPress On Azure"
+            }
+        },
+        "wordpressAdminEmail": {
+            "value": {
+                "type": "String",
+                "value": "azt54@psu.edu"
+            }
+        },
+        "wordpressUsername": {
+            "value": {
+                "type": "String",
+                "value": "azt54"
+            }
+        },
+        "wordpressPassword": {
+            "value": null
+        },
+        "wpLocaleCode": {
+            "value": {
+                "type": "String",
+                "value": "en_US"
+            }
+        },
+        "vnetName": {
+            "value": {
+                "type": "String",
+                "value": "realist-8bfc4200e8-vnet"
+            }
+        },
+        "subnetForApp": {
+            "value": {
+                "type": "String",
+                "value": "realist-e4636974a3-appsubnet"
+            }
+        },
+        "subnetForDb": {
+            "value": {
+                "type": "String",
+                "value": "realist-e4636974a3-dbsubnet"
+            }
+        },
+        "privateDnsZoneNameForDb": {
+            "value": {
+                "type": "String",
+                "value": "realist-e4636974a3-privatelink.mysql.database.azure.com"
+            }
+        },
+        "vnetrg": {
+            "value": {
+                "type": "String",
+                "value": ""
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2021-03-01",
+            "name": "realist-8bfc4200e8-vnet/realist-e4636974a3-appsubnet",
+            "properties": {
+                "addressPrefix": "10.0.0.0/25",
+                "delegations": [
+                    {
+                        "name": "dlg-appService",
+                        "properties": {
+                            "serviceName": "Microsoft.Web/serverFarms"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2021-03-01",
+            "name": "realist-8bfc4200e8-vnet/realist-e4636974a3-dbsubnet",
+            "dependsOn": [
+                "/subscriptions/56c53c9b-34da-4993-a17f-7e472dbba0da/resourceGroups/wordpress/providers/Microsoft.Network/virtualNetworks/realist-8bfc4200e8-vnet/subnets/realist-e4636974a3-appsubnet"
+            ],
+            "properties": {
+                "addressPrefix": "10.0.0.128/25",
+                "delegations": [
+                    {
+                        "name": "dlg-appService",
+                        "properties": {
+                            "serviceName": "Microsoft.DBforMySQL/flexibleServers"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

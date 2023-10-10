@@ -1,0 +1,106 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apiVersion": {
+            "defaultValue": "2021-05-01",
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "serverName": {
+            "type": "String"
+        },
+        "serverEdition": {
+            "type": "String"
+        },
+        "vCores": {
+            "defaultValue": 4,
+            "type": "Int"
+        },
+        "storageSizeGB": {
+            "type": "Int"
+        },
+        "haEnabled": {
+            "defaultValue": "Disabled",
+            "type": "String"
+        },
+        "backupRetentionDays": {
+            "type": "Int"
+        },
+        "geoRedundantBackup": {
+            "type": "String"
+        },
+        "storageIops": {
+            "type": "Int"
+        },
+        "storageAutogrow": {
+            "defaultValue": "Enabled",
+            "type": "String"
+        },
+        "autoIoScaling": {
+            "defaultValue": "Disabled",
+            "type": "String"
+        },
+        "vmName": {
+            "defaultValue": "GP_D4s_v3",
+            "type": "String"
+        },
+        "standbyAvailabilityZone": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "network": {
+            "defaultValue": {},
+            "type": "Object",
+            "metadata": {
+                "description": "network data for vnet server"
+            }
+        },
+        "identityData": {
+            "defaultValue": {},
+            "type": "Object"
+        },
+        "dataEncryptionData": {
+            "defaultValue": {},
+            "type": "Object"
+        }
+    },
+    "variables": {
+        "api": "[parameters('apiVersion')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.DBforMySQL/flexibleServers",
+            "apiVersion": "[variables('api')]",
+            "name": "[parameters('serverName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "[parameters('vmName')]",
+                "tier": "[parameters('serverEdition')]",
+                "capacity": "[parameters('vCores')]"
+            },
+            "identity": "[if(empty(parameters('identityData')), json('null'), parameters('identityData'))]",
+            "properties": {
+                "createMode": "Update",
+                "Storage": {
+                    "StorageSizeGB": "[parameters('storageSizeGB')]",
+                    "Iops": "[parameters('storageIops')]",
+                    "Autogrow": "[parameters('storageAutogrow')]",
+                    "AutoIoScaling": "[parameters('autoIoScaling')]"
+                },
+                "Backup": {
+                    "backupRetentionDays": "[parameters('backupRetentionDays')]",
+                    "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+                },
+                "highAvailability": {
+                    "mode": "[parameters('haEnabled')]",
+                    "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
+                },
+                "Network": "[if(empty(parameters('network')), json('null'), parameters('network'))]",
+                "dataencryption": "[if(empty(parameters('dataEncryptionData')), json('null'), parameters('dataEncryptionData'))]"
+            }
+        }
+    ]
+}
